@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Storage
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="data" (ngSubmit)="saveData()">
+    <ion-row>
+      <ion-col col-9>
+        <ion-item>
+          <ion-label>Todo</ion-label>
+          <ion-input type="text" formControlName="todo"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button type="submit" [disabled]="!data.valid">Submit</button>
+      </ion-col>
+    </ion-row>
+  </form>
+  <ion-list>
+    <ion-item *ngFor="let item of todoList" (click)="delete(item)">{{item.value}}</ion-item>
+  </ion-list>
+</ion-content>
